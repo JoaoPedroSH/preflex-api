@@ -1,9 +1,10 @@
 <?php
+namespace TasksManager\Entities;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
-#[ORM\Table(name: 'users')]
-class User
+#[ORM\Table(name: 'tasks')]
+class TaskEntity
 {
     #[ORM\Id]
     #[ORM\Column(type: 'integer')]
@@ -11,11 +12,11 @@ class User
     private $id;
 
     #[ORM\Column(type: 'string')]
-    private $username;
+    private $task;
 
-    public function toNickname(): string
+    public function allTasks(): string
     {
-        return $this->username;
+        return $this->task;
     }
 
 }

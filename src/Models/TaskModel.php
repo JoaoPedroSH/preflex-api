@@ -2,6 +2,7 @@
 
 namespace TasksManager\Models;
 use TasksManager\Services\Database;
+use TasksManager\Entities\TaskEntity;
 use \PDO;
 
 class TaskModel {
@@ -12,8 +13,10 @@ class TaskModel {
     }
 
     public function getTasks() {
-        $pdo = $this->database->getPdo();
+        $entitie = new TaskEntity();
+        return $entitie->allTasks();
+        /* $pdo = $this->database->getPdo();
         $tasks = $pdo->query("SELECT * FROM tasks");
-        return $tasks->fetchAll(PDO::FETCH_ASSOC);
+        return $tasks->fetchAll(PDO::FETCH_ASSOC); */
     }
 }
