@@ -1,0 +1,15 @@
+{
+    "autoload": {
+        "psr-4": {
+            "TasksManager\\": "src/" 
+        }
+    },
+    "require": {
+        "slim/slim": "^4.12",
+        "slim/psr7": "^1.6",
+        "doctrine/orm": "^2.11.0",
+        "doctrine/dbal": "^3.2",
+        "symfony/yaml": "^5.4",
+        "symfony/cache": "^5.4"
+    }
+}
