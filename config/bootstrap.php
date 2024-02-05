@@ -1,40 +1,27 @@
 <?php
-// bootstrap.php
+
 use Doctrine\DBAL\DriverManager;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMSetup;
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-// Create a simple "default" Doctrine ORM configuration for Attributes
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 $config = ORMSetup::createAttributeMetadataConfiguration(
     paths: array(__DIR__."/../src/Entities"),
     isDevMode: true,
 );
-// or if you prefer annotation, YAML or XML
-// $config = ORMSetup::createAnnotationMetadataConfiguration(
-//    paths: array(__DIR__."/src"),
-//    isDevMode: true,
-// );
-// $config = ORMSetup::createXMLMetadataConfiguration(
-//    paths: array(__DIR__."/config/xml"),
-//    isDevMode: true,
-//);
-// $config = ORMSetup::createYAMLMetadataConfiguration(
-//    paths: array(__DIR__."/config/yaml"),
-//    isDevMode: true,
-// );
 
-// configuring the database connection
 $connection = DriverManager::getConnection([
-    'driver' => 'pdo_mysql',
-    'host' => 'localhost',
-    'dbname' => 'tasksmanager',
-    'user' => 'root',
-    'password' => 123456,
-    'charset' => 'utf8mb4',
-    'port' => 3300
+    'driver' => $_ENV['DB_DRIVER'],
+    'host' => $_ENV['DB_HOST'],
+    'dbname' => $_ENV['DB_DATABASE'],
+    'user' => $_ENV['DB_USER'],
+    'password' => $_ENV['DB_PASSWORD'],
+    'port' => $_ENV['DB_PORT'],
+    'charset' => $_ENV['DB_CHARSET']
 ], $config);
 
-// obtaining the entity manager
 $entityManager = new EntityManager($connection, $config);

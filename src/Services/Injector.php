@@ -17,7 +17,7 @@ class Injector implements ContainerInterface
 
     public function __construct()
     {
-        $this->database = new Database('mysql:host=localhost;dbname=tasksmanager;port=3300', 'root', 123456);
+        $this->database = new Database();
 
         $this->add(TaskController::class, function () {
             return new TaskController(new TaskModel($this->database));
