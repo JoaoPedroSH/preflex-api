@@ -5,7 +5,7 @@ namespace TasksManager\Models;
 use TasksManager\Services\Database;
 use \PDO;
 
-class TaskModel
+class TaskGroupModel
 {
     private $database;
 
@@ -17,14 +17,14 @@ class TaskModel
     public function getAll()
     {
         $pdo = $this->database->getPdo();
-        $tasks = $pdo->query("SELECT * FROM tasks");
+        $tasks = $pdo->query("SELECT * FROM tasks_groups");
         return $tasks->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function create()
     {
         $pdo = $this->database->getPdo();
-        $tasks = $pdo->query("SELECT * FROM tasks");
+        $tasks = $pdo->query("SELECT * FROM tasks_groups");
         return $tasks->fetchAll(PDO::FETCH_ASSOC);
     }
 }
