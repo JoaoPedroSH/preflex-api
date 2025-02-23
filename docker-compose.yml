@@ -6,4 +6,4 @@ services:
       - "3300:3306"
     environment:
       - MARIADB_ROOT_PASSWORD=123456
-      - MARIADB_DATABASE=tasksmanager
+      - MARIADB_DATABASE=preflex
