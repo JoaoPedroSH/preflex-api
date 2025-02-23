@@ -1,3 +1,39 @@
+```sh
+ERP (Núcleo Central)
+│
+├── 1. Finanças e Contabilidade
+│ │
+│ ├── Funcionalidade: Gestão de fluxo de caixa, contas a pagar/receber.
+│
+├── 2. Vendas e CRM
+│ │
+│ ├── Funcionalidade: Acompanhamento de clientes e pipeline de vendas.
+│
+├── 3. Estoque e Logística
+│ │
+│ ├── Funcionalidade: Controle de estoque em tempo real.
+│
+├── 4. Recursos Humanos (RH)
+│ │
+│ ├── Funcionalidade: Folha de pagamento e gestão de benefícios.
+│
+├── 5. Produção e Manufatura
+│ │
+│ ├── Funcionalidade: Planejamento de produção (MRP).
+│
+├── 6. Compras e Suprimentos
+│ │
+│ ├── Funcionalidade: Comparação de cotações de fornecedores.
+│
+├── 7. Atendimento ao Cliente
+│ │
+│ ├── Funcionalidade: Central de atendimento integrada.
+│
+└── 8. Business Intelligence (BI)
+│
+├── Funcionalidade: Dashboards e relatórios estratégicos.
+```
+
 # tasks-manager-api
 
 ### Instalar dependencias
