@@ -1,7 +1,7 @@
 {
     "autoload": {
         "psr-4": {
-            "TasksManager\\": "src/" 
+            "Preflex\\": "src/"
         }
     },
     "require": {
@@ -13,6 +13,7 @@
         "symfony/cache": "^5.4",
         "zircote/swagger-php": "^4.8",
         "doctrine/annotations": "^2.0",
-        "vlucas/phpdotenv": "^5.6"
+        "vlucas/phpdotenv": "^5.6",
+        "illuminate/database": "^11.43",
     }
 }

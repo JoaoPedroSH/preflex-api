@@ -1,49 +1,73 @@
 <?php
 
-namespace TasksManager\Services;
+namespace Preflex\Services;
 
 use Psr\Container\ContainerInterface;
-
-use TasksManager\Services\Database;
-
-use TasksManager\Controllers\TaskController;
-use TasksManager\Controllers\TaskGroupController;
-use TasksManager\Models\TaskModel;
-use TasksManager\Models\TaskGroupModel;
+use Preflex\Controllers\UsuarioController;
+use Preflex\Controllers\NegocioController;
+use Preflex\Models\UsuarioModel;
+use Preflex\Models\NegocioModel;
+use Exception;
 
 class Injector implements ContainerInterface
 {
-    private Database $database;
+    protected array $storage = [];
 
     public function __construct()
     {
-        $this->database = new Database();
 
-        $this->add(TaskController::class, function () {
-            return new TaskController(new TaskModel($this->database));
+        $this->add(UsuarioController::class, function (Injector $container) {
+            return new UsuarioController($container->get(UsuarioModel::class));
+        });
+        $this->add(NegocioController::class, function (Injector $container) {
+            return new NegocioController($container->get(NegocioModel::class));
         });
 
-        $this->add(TaskGroupController::class, function () {
-            return new TaskGroupController(new TaskGroupModel($this->database));
+
+        $this->add(UsuarioModel::class, function () {
+            return new UsuarioModel();
+        });
+        $this->add(NegocioModel::class, function () {
+            return new NegocioModel();
         });
     }
 
-    protected array $storage;
-
-    public function add(string $id, callable $callable)
+    /**
+     * Adiciona uma dependência no container.
+     *
+     * @param string $id
+     * @param callable $callable
+     */
+    public function add(string $id, callable $callable): void
     {
         $this->storage[$id] = $callable;
     }
 
+    /**
+     * Recupera uma dependência do container.
+     *
+     * @param string $id
+     * @return mixed
+     * @throws Exception
+     */
     public function get(string $id): mixed
     {
-        if (true === $this->has($id)) {
-            return $this->storage[$id]($this);
+        if (!$this->has($id)) {
+            throw new Exception("Dependencia {$id} não encontrada.");
         }
+
+        return $this->storage[$id]($this);
     }
 
-    public function has($id): bool
+    /**
+     * Verifica se a dependência está registrada no container.
+     *
+     * @param string $id
+     * @return bool
+     */
+    public function has(string $id): bool
     {
         return isset($this->storage[$id]);
     }
 }
+

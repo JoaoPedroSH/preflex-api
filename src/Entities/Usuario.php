@@ -1,13 +1,13 @@
 <?php
 
-namespace TasksManager\Entities;
+namespace Preflex\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
 use \DateTime;
 
 #[ORM\Entity]
-#[ORM\Table(name: 'tasks')]
-class Task
+#[ORM\Table(name: 'usuarios')]
+class Usuario
 {
     #[ORM\Id]
     #[ORM\Column(type: 'integer')]

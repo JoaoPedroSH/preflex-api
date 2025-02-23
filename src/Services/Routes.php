@@ -1,6 +1,6 @@
 <?php
 
-namespace TasksManager\Services;
+namespace Preflex\Services;
 
 /**
  * @OA\Info(title="Minha API", version="1.0")
@@ -12,32 +12,35 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Routing\RouteCollectorProxy;
 
-use TasksManager\Controllers\TaskController;
-use TasksManager\Controllers\TaskGroupController;
+use Preflex\Controllers\UsuarioController;
+use Preflex\Controllers\NegocioController;
 
 class Routes
 {
     public static function defineRoutes(App $app): void
     {
+
         $app->get('/', function (Request $request, Response $response) {
-            $response->getBody()->write('Tela principal');
+            $response->getBody()->write('Preflex API');
             return $response
                 ->withHeader('Content-Type', 'application/json');
 
         });
 
-        $app->group('/tasks', function (RouteCollectorProxy $group) {
-            $group->get('', [TaskController::class, 'getAll']);
-            $group->post('', [TaskController::class, 'create']);
+        $app->group('/usuarios', function (RouteCollectorProxy $group) {
+            $group->get('', [UsuarioController::class, 'getAll']);
+            $group->post('', [UsuarioController::class, 'create']);
         });
 
-        $app->group('/tasks_groups', function (RouteCollectorProxy $group) {
-            $group->get('', [TaskGroupController::class, 'getAll']);
-            $group->post('', [TaskGroupController::class, 'create']);
+        $app->group('/negocios', function (RouteCollectorProxy $group) {
+            $group->get('', [NegocioController::class, 'getAll']);
+            $group->post('', [NegocioController::class, 'create']);
         });
 
         $app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function (Request $request) {
             throw new HttpNotFoundException($request);
         });
+
     }
+
 }

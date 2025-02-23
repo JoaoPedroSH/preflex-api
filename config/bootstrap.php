@@ -3,14 +3,15 @@
 use Doctrine\DBAL\DriverManager;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMSetup;
+use Dotenv\Dotenv;
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 $config = ORMSetup::createAttributeMetadataConfiguration(
-    paths: array(__DIR__."/../src/Entities"),
+    paths: array(__DIR__ . "/../src/Entities"),
     isDevMode: true,
 );
 
