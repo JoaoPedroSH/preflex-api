@@ -7,7 +7,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:PreflexERP/preflex-api-mod-estoque.git"
+            "url": "https://github.com/PreflexERP/preflex-api-mod-estoque.git"
         }
     ],
     "require": {
