@@ -14,4 +14,4 @@ COPY . .
 # Instala as dependências do Composer
 RUN composer install --no-interaction --no-progress --prefer-dist
 
-CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]
+CMD ["php", "-S", "localhost:8000", "-t", "public"]
