@@ -1,5 +1,16 @@
 version: "3.8"
 services:
+  preflex-api:
+    build:
+      context: .
+      args:
+        GITHUB_TOKEN: "SEU_TOKEN_AQUI"
+    environment:
+      - GITHUB_TOKEN=SEU_TOKEN_AQUI
+    volumes:
+      - .:/preflex-api
+    ports:
+      - "8080:8080"
   mariadb:
     image: mariadb:10.9
     ports: 
