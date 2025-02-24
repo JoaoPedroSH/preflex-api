@@ -8,7 +8,7 @@ ARG GITHUB_TOKEN
 RUN composer config --global --auth github-oauth.github.com ${GITHUB_TOKEN}
 
 # Copia os arquivos do projeto para o container
-WORKDIR /app
+WORKDIR /preflex-api
 COPY . .
 
 # Instala as dependências do Composer
