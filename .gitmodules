@@ -1,0 +1,3 @@
+[submodule "src/Modulos/estoque"]
+	path = src/Modulos/estoque
+	url = https://github.com/PreflexERP/preflex-api-mod-estoque.git

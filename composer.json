@@ -1,15 +1,10 @@
 {
     "autoload": {
         "psr-4": {
-            "Preflex\\": "src/"
+            "Preflex\\": "src/",
+            "Preflex\\Modulos\\Estoque": "src/Modulos/estoque/src"
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/PreflexERP/preflex-api-mod-estoque.git"
-        }
-    ],
     "require": {
         "slim/slim": "^4.12",
         "slim/psr7": "^1.6",
@@ -20,7 +15,6 @@
         "zircote/swagger-php": "^4.8",
         "doctrine/annotations": "^2.0",
         "vlucas/phpdotenv": "^5.6",
-        "illuminate/database": "^11.43",
-        "PreflexERP/preflex-api-mod-estoque": "estoque"
+        "illuminate/database": "^11.43"
     }
 }

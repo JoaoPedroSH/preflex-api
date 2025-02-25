@@ -1,12 +1,7 @@
-version: "3.8"
 services:
   preflex-api:
     build:
       context: .
-      args:
-        GITHUB_TOKEN: ${GITHUB_TOKEN}
-    environment:
-      - GITHUB_TOKEN=${GITHUB_TOKEN}
     volumes:
       - .:/preflex-api
     ports:
