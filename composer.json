@@ -2,7 +2,7 @@
     "autoload": {
         "psr-4": {
             "Preflex\\": "src/",
-            "Preflex\\Modulos\\Estoque": "src/Modulos/estoque/src"
+            "Preflex\\Modules\\Estoque": "src/Modules/estoque/src"
         }
     },
     "require": {

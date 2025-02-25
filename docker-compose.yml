@@ -11,5 +11,5 @@ services:
     ports: 
       - "3300:3306"
     environment:
-      - MARIADB_ROOT_PASSWORD=123456
-      - MARIADB_DATABASE=preflex
+      - MARIADB_ROOT_PASSWORD=${DB_PASSWORD}
+      - MARIADB_DATABASE=${DB_DATABASE}
